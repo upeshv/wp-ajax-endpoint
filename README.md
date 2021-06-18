@@ -22,9 +22,9 @@ For listing data, I have used **WP List Table** so that we can do further operat
 ## Screenshots
 
 1. Backend menu page.
-  ![Screenshot](https://github.com/upeshv/wp-ajax-endpoint/master/assets/images/backend-table.png?raw=true)
+  ![Screenshot](https://github.com/upeshv/wp-ajax-endpoint/blob/master/assets/images/backend-table.png?raw=true)
 2. Frontend page.
-  ![Screenshot](https://github.com/upeshv/wp-ajax-endpoint/master/assets/images/frontend-table.png?raw=true)
+  ![Screenshot](https://github.com/upeshv/wp-ajax-endpoint/blob/master/assets/images/frontend-table.png?raw=true)
 
 
 ## CLI command to refresh data
