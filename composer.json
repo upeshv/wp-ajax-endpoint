@@ -1,0 +1,15 @@
+{
+  "autoload": {
+    "psr-4": {
+      "WPAJAXEPT\\": [
+        "src"
+      ],
+      "WPAJAXEPT\\Admin\\": [
+        "src/Admin"
+      ],
+      "WPAJAXEPT\\Frontend\\": [
+        "src/Frontend"
+      ]
+    }
+  }
+}

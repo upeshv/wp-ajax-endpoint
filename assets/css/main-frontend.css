@@ -1,0 +1,21 @@
+#wp_ajax_ept-content-wrapper table.wp_ajax_ept-table {
+  margin: 0 auto;
+}
+
+#wp_ajax_ept-content-wrapper table.wp_ajax_ept-table th,
+table.wp_ajax_ept-table td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+#wp_ajax_ept-content-wrapper table.wp_ajax_ept-table th {
+  padding: 15px 10px;
+  background: #dfdfdf;
+}
+
+#wp_ajax_ept-content-wrapper {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 30px 0;
+  font-size: 14px;
+  line-height: 1.3;
+}
