@@ -22,7 +22,7 @@ if (!class_exists('SettingsLink')) :
 		 */
 		public function __construct()
 		{
-
+			
 			$this->plugin_name = plugin_basename(WPAJAXEPT_PLUGIN_FILE);
 
 			add_filter("plugin_action_links_$this->plugin_name", array($this, 'wp_ajax_ept_settings_link'));

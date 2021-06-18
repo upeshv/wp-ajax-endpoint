@@ -25,8 +25,9 @@ if (!class_exists('GetAPI')) :
       // Get any existing copy of our transient data.
       if (false === ($response = get_transient('wp_ajax_ept_miusage_data'))) {
         // Transient expired, refresh the data.
-        $response        = wp_remote_get($this->endpoint);
+        $response  = wp_remote_get($this->endpoint);
         $http_code = wp_remote_retrieve_response_code($response);
+        
         // If response code is 200 then set the transient data.
         if ($http_code == 200) :
           set_transient('wp_ajax_ept_miusage_data', $response,  60 * 60);

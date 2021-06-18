@@ -4,11 +4,13 @@ namespace WPAJAXEPT\Admin;
 
 use WPAJAXEPT\Admin\GetAPI;
 
+// Using WordPress Table Listing Features
 if (!class_exists('\WP_List_Table')) {
   require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
 
 /**
+ * Extends WordPress WP_List_Table class for listing table data
  * Class GetData helps GetAPI class to list the data in WP table list format.
  *
  * @since 1.0.0

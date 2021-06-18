@@ -29,8 +29,6 @@ if (!class_exists('Core')) :
     public function __construct()
     {
 
-      add_action('init', [$this, 'register_textdomain']);
-
       // Createing instance here for both AdminMenu and SettingsLink
       $adminMenu =  new AdminMenu();
       new SettingsLink();
@@ -50,18 +48,6 @@ if (!class_exists('Core')) :
 
       // Allow async or defer on asset loading.
       add_filter('script_loader_tag', [$this, 'script_loader_tag'], 10, 2);
-    }
-
-    /**
-     * Registers the default textdomain.
-     *
-     * @since 1.0.0
-     */
-    public function register_textdomain()
-    {
-      $locale = apply_filters('plugin_locale', get_locale(), 'wp-ajax-endpoint');
-      load_textdomain('wp-ajax-endpoint', WPAJAXEPT_PLUGIN_LANG . '/wp-ajax-endpoint-' . $locale . '.mo');
-      load_plugin_textdomain('wp-ajax-endpoint', false, plugin_basename(WPAJAXEPT_PLUGIN_PATH) . '/languages/');
     }
 
     /**

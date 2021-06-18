@@ -93,7 +93,7 @@ if (!class_exists('AdminMenu')) :
 		 */
 		public function wp_ajax_ept_settings_cb()
 		{
-			echo __('Below data is been fetched from <a href="https://miusage.com/v1/challenge/1/" target="_blank">this endpoint</a>.', 'wp_ajax_ept');
+			echo __('Below data is been fetched from <a href="https://miusage.com/v1/challenge/1/" target="_blank">this endpoint</a>. To display the below table in frontend use shortcode <b>[wpajaxept]</b>', 'wp_ajax_ept');
 		}
 
 		/**
