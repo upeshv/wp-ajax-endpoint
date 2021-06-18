@@ -46,7 +46,7 @@ use WPAJAXEPT as Admin;
 $wp_ajax_ept_obj = new Admin\Core();
 
 /**
- * Deactivate/Uninstall plugin hooks.
+ * Activate/Deactivate/Uninstall plugin hooks.
  *
  * @since 1.0.0
  */
@@ -60,7 +60,7 @@ register_uninstall_hook(WPAJAXEPT_PLUGIN_FILE, $wp_ajax_ept_obj->uninstall());
 use WPAJAXEPT\Admin\GetData;
 
 /**
- * Function WPCliCMD is responsible for refershing data from terminal.
+ * Function WPCliCMD is responsible for refershing data from command line.
  *
  * @since 1.0.0
  */
@@ -82,7 +82,7 @@ $WPCliCMD = function () {
 };
 
 /**
- * Function WPCliCMD is responsible for refershing data from terminal.
+ * Execute only if ran via command line.
  *
  * @since 1.0.0
  */
