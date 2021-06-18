@@ -22,19 +22,26 @@ For listing data, I have used **WP List Table** so that we can do further operat
 ## Screenshots
 
 1. Backend menu page.
+
   ![Screenshot](https://github.com/upeshv/wp-ajax-endpoint/blob/master/assets/images/backend-table.png?raw=true)
+  
 2. Frontend page.
+
   ![Screenshot](https://github.com/upeshv/wp-ajax-endpoint/blob/master/assets/images/frontend-table.png?raw=true)
 
 
 ## CLI command to refresh data
+
+Using Below command you can override the one-hour limit and manually fetch the new data.
 
 ```php
   wp wp-ajax-ept-reset
 ```
 
 
-## Shortcode to display table in frontend
+## Shortcode
+
+Below shortcode is used to display table data in frontend.
 
 ```php
   [wpajaxept]

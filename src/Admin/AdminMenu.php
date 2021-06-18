@@ -3,7 +3,7 @@
 namespace WPAJAXEPT\Admin;
 
 use WPAJAXEPT\Admin\OptionsPage;
-use WPAJAXEPT\Admin\RefreshData; 
+use WPAJAXEPT\Admin\RefreshData;
 use WPAJAXEPT\Admin\AdminNotices;
 use WPAJAXEPT\Admin\TextDomain;
 
@@ -13,24 +13,26 @@ use WPAJAXEPT\Admin\TextDomain;
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'AdminMenu' ) ) :
+if (!class_exists('AdminMenu')) :
 
-	class AdminMenu {
+	class AdminMenu
+	{
 		/**
 		 * Construct the AdminMenu class.
 		 *
 		 * @since   1.0.0
 		 */
-		public function __construct() {
+		public function __construct()
+		{
 			// Object of class Refresh data.
 			$refresh_data = new RefreshData();
 
 			// Define Ajax.
-			add_action( 'wp_ajax_get_miusage_data', [ $refresh_data, 'get_miusage_data' ] );
-			add_action( 'wp_ajax_nopriv_get_miusage_data', [ $refresh_data, 'get_miusage_data' ] );
+			add_action('wp_ajax_get_miusage_data', [$refresh_data, 'get_miusage_data']);
+			add_action('wp_ajax_nopriv_get_miusage_data', [$refresh_data, 'get_miusage_data']);
 
 			// Hook settings add additonal info
-			add_action( 'admin_init', [ $this, 'wp_ajax_ept_register_settings' ] );
+			add_action('admin_init', [$this, 'wp_ajax_ept_register_settings']);
 
 			$this->load_helpers();
 		}
@@ -40,13 +42,13 @@ if ( ! class_exists( 'AdminMenu' ) ) :
 		 *
 		 * @since   1.0.0
 		 */
-		public function load_helpers() {
+		public function load_helpers()
+		{
 			// Register Admin Notices.
-			( new AdminNotices() );
+			(new AdminNotices());
 
 			// Load Text_Domain.
-			( new TextDomain() );
-
+			(new TextDomain());
 		}
 
 		/**
@@ -54,10 +56,11 @@ if ( ! class_exists( 'AdminMenu' ) ) :
 		 *
 		 * @since   1.0.0
 		 */
-		public function wp_ajax_ept_register_settings() {
-			register_setting( 'wp_ajax_ept_options_group', 'wp_ajax_ept_option_name' );
-			
-			add_settings_section( 'wp_ajax_ept-section-1', __( 'API Data', 'wp_ajax_ept' ), array( $this, 'wp_ajax_ept_settings_cb' ), 'wp_ajax_ept-settings' );
+		public function wp_ajax_ept_register_settings()
+		{
+			register_setting('wp_ajax_ept_options_group', 'wp_ajax_ept_option_name');
+
+			add_settings_section('wp_ajax_ept-section-1', __('API Data', 'wp_ajax_ept'), array($this, 'wp_ajax_ept_settings_cb'), 'wp_ajax_ept-settings');
 		}
 
 		/**
@@ -65,21 +68,21 @@ if ( ! class_exists( 'AdminMenu' ) ) :
 		 *
 		 * @since   1.0.0
 		 */
-		public function wp_ajax_ept_register_options_page() {
+		public function wp_ajax_ept_register_options_page()
+		{
 
 			// Options pages access capability.
 			$access_capability = 'manage_options';
 
 			add_menu_page(
-				esc_html__( 'WP Ajax Endpoint', 'wp_ajax_ept' ),
-				esc_html__( 'WP Ajax Endpoint', 'wp_ajax_ept' ),
+				esc_html__('WP Ajax Endpoint', 'wp_ajax_ept'),
+				esc_html__('WP Ajax Endpoint', 'wp_ajax_ept'),
 				$access_capability,
 				'wp-ajax-endpoint',
-				[ $this, 'wp_ajax_ept_options_page' ],
+				[$this, 'wp_ajax_ept_options_page'],
 				'',
 				98
 			);
-
 		}
 
 
@@ -88,8 +91,9 @@ if ( ! class_exists( 'AdminMenu' ) ) :
 		 *
 		 * @since   1.0.0
 		 */
-		public function wp_ajax_ept_settings_cb() {
-			echo __( 'Below data is been fetched from <a href="https://miusage.com/v1/challenge/1/" target="_blank">this endpoint</a>.', 'wp_ajax_ept' );
+		public function wp_ajax_ept_settings_cb()
+		{
+			echo __('Below data is been fetched from <a href="https://miusage.com/v1/challenge/1/" target="_blank">this endpoint</a>.', 'wp_ajax_ept');
 		}
 
 		/**
@@ -97,9 +101,10 @@ if ( ! class_exists( 'AdminMenu' ) ) :
 		 *
 		 * @since   1.0.0
 		 */
-		public function wp_ajax_ept_options_page() {
+		public function wp_ajax_ept_options_page()
+		{
 			// get the data from the 'Options_Page' class.
-			( new OptionsPage() )->display_plugin_content();
+			(new OptionsPage())->display_plugin_content();
 		}
 	}
 

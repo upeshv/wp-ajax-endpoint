@@ -8,9 +8,10 @@ namespace WPAJAXEPT\Admin;
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'GetAPI' ) ) :
+if (!class_exists('GetAPI')) :
 
-  class GetAPI {
+  class GetAPI
+  {
     /**
      * Data endpoint.
      *
@@ -19,7 +20,8 @@ if ( ! class_exists( 'GetAPI' ) ) :
      */
     protected $endpoint = 'https://miusage.com/v1/challenge/1/';
 
-    public function getAPIResponse() { 
+    public function getAPIResponse()
+    {
       // Get any existing copy of our transient data.
       if (false === ($response = get_transient('wp_ajax_ept_miusage_data'))) {
         // Transient expired, refresh the data.
@@ -27,7 +29,7 @@ if ( ! class_exists( 'GetAPI' ) ) :
         $http_code = wp_remote_retrieve_response_code($response);
         // If response code is 200 then set the transient data.
         if ($http_code == 200) :
-          set_transient('wp_ajax_ept_miusage_data', $response,  60 * 60 );
+          set_transient('wp_ajax_ept_miusage_data', $response,  60 * 60);
         endif;
       }
       if ($response['response']['code'] == 200) : // if response is OK.

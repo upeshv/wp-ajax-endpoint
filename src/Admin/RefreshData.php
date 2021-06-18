@@ -7,20 +7,22 @@ namespace WPAJAXEPT\Admin;
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'RefreshData' ) ) :
+if (!class_exists('RefreshData')) :
 
-	class RefreshData {
-		
+	class RefreshData
+	{
+
 		/**
 		 * Function called on "Refresh" button clicked via Ajax
 		 *
 		 * @since   1.0.0
 		 */
-		public function get_miusage_data() {
+		public function get_miusage_data()
+		{
 			// Nonce Check.
-			if ( 'GET' === $_SERVER['REQUEST_METHOD'] ) { // Check if post method.
-				if ( ! check_ajax_referer( 'wp-ajax-ept-security-nonce', 'security', false ) ) {
-					wp_send_json_error( 'Unauthorized Request' );
+			if ('GET' === $_SERVER['REQUEST_METHOD']) { // Check if post method.
+				if (!check_ajax_referer('wp-ajax-ept-security-nonce', 'security', false)) {
+					wp_send_json_error('Unauthorized Request');
 					wp_die();
 				}
 			}
@@ -28,17 +30,17 @@ if ( ! class_exists( 'RefreshData' ) ) :
 			/**
 			 * Delete the transient cache if refresh data button is pressed.
 			 */
-			delete_transient( 'wp_ajax_ept_miusage_data' );
+			delete_transient('wp_ajax_ept_miusage_data');
 
 			// get the data in table format.      
-      ob_start();
+			ob_start();
 
-      $getData = new GetData();
-      $getData->prepare_items();
-      $getData->display();
+			$getData = new GetData();
+			$getData->prepare_items();
+			$getData->display();
 
-      $table_response = ob_get_contents();
-      ob_end_clean();
+			$table_response = ob_get_contents();
+			ob_end_clean();
 
 			$data_response = array(
 				'type' => 'success',
@@ -46,7 +48,7 @@ if ( ! class_exists( 'RefreshData' ) ) :
 			);
 
 			// send data back to the calling script in decoded format.
-			echo json_encode( $data_response );
+			echo json_encode($data_response);
 			wp_die();
 		}
 	}
